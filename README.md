@@ -1,4 +1,4 @@
-# Mermaid Zoom Preview
+# Yet Another Markdown Mermaid IDE Extention (YAMMIE)
 
 A VS Code extension that renders Mermaid diagrams in the markdown preview with zoom and pan capabilities.
 
