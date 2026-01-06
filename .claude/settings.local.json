@@ -1,0 +1,12 @@
+{
+  "enabledPlugins": {
+    "ai-ml-tools@claudekit-skills": true,
+    "backend-tools@claudekit-skills": true,
+    "debugging-tools@claudekit-skills": true,
+    "problem-solving-tools@claudekit-skills": true,
+    "web-dev-tools@claudekit-skills": true,
+    "specialized-tools@claudekit-skills": true,
+    "research-tools@claudekit-skills": true,
+    "meta-tools@claudekit-skills": true
+  }
+}

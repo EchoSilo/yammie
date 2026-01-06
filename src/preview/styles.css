@@ -1,0 +1,202 @@
+/* Mermaid Zoom Preview Styles */
+
+/* Container for mermaid diagrams */
+.mermaid-zoom-container {
+  margin: 16px 0;
+}
+
+/* Wrapper for SVG with overflow handling */
+.mermaid-zoom-wrapper {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--vscode-panel-border, #454545);
+  border-radius: 4px;
+  background: var(--vscode-editor-background, #1e1e1e);
+  min-height: 100px;
+}
+
+/* SVG styling */
+.mermaid-zoom-wrapper svg {
+  display: block;
+  max-width: none !important;
+  height: auto !important;
+  width: 100%;
+}
+
+/* Controls container */
+.mermaid-zoom-controls {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  display: flex;
+  gap: 4px;
+  padding: 4px;
+  background: var(--vscode-editor-background, #1e1e1e);
+  border: 1px solid var(--vscode-panel-border, #454545);
+  border-radius: 4px;
+  opacity: 1;
+  transition: opacity 0.2s ease;
+  z-index: 10;
+}
+
+/* Hover mode - hide controls until hover */
+.mermaid-zoom-hover-controls .mermaid-zoom-controls {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.mermaid-zoom-hover-controls:hover .mermaid-zoom-controls,
+.mermaid-zoom-hover-controls:focus-within .mermaid-zoom-controls {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Control buttons */
+.mermaid-zoom-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  padding: 0;
+  border: none;
+  border-radius: 4px;
+  background: var(--vscode-button-secondaryBackground, #3a3d41);
+  color: var(--vscode-button-secondaryForeground, #cccccc);
+  cursor: pointer;
+  transition: background 0.1s ease, transform 0.1s ease;
+}
+
+.mermaid-zoom-btn:hover {
+  background: var(--vscode-button-secondaryHoverBackground, #45494e);
+}
+
+.mermaid-zoom-btn:focus {
+  outline: 2px solid var(--vscode-focusBorder, #007acc);
+  outline-offset: 1px;
+}
+
+.mermaid-zoom-btn:active {
+  background: var(--vscode-button-background, #0e639c);
+  color: var(--vscode-button-foreground, #ffffff);
+  transform: scale(0.95);
+}
+
+.mermaid-zoom-btn svg {
+  fill: currentColor;
+  pointer-events: none;
+}
+
+/* Error display */
+.mermaid-zoom-error {
+  padding: 16px;
+  background: var(--vscode-inputValidation-errorBackground, #5a1d1d);
+  border: 1px solid var(--vscode-inputValidation-errorBorder, #be1100);
+  border-radius: 4px;
+  color: var(--vscode-errorForeground, #f48771);
+}
+
+.mermaid-zoom-error strong {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--vscode-errorForeground, #f48771);
+}
+
+.mermaid-zoom-error pre {
+  margin: 0;
+  padding: 8px;
+  background: var(--vscode-editor-background, #1e1e1e);
+  border-radius: 4px;
+  overflow-x: auto;
+  font-size: 12px;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+/* Light theme adjustments */
+.vscode-light .mermaid-zoom-wrapper {
+  border-color: var(--vscode-panel-border, #c8c8c8);
+  background: var(--vscode-editor-background, #ffffff);
+}
+
+.vscode-light .mermaid-zoom-controls {
+  background: var(--vscode-editor-background, #ffffff);
+  border-color: var(--vscode-panel-border, #c8c8c8);
+}
+
+.vscode-light .mermaid-zoom-btn {
+  background: var(--vscode-button-secondaryBackground, #e1e1e1);
+  color: var(--vscode-button-secondaryForeground, #333333);
+}
+
+.vscode-light .mermaid-zoom-btn:hover {
+  background: var(--vscode-button-secondaryHoverBackground, #d4d4d4);
+}
+
+/* High contrast theme adjustments */
+.vscode-high-contrast .mermaid-zoom-wrapper {
+  border-width: 2px;
+  border-color: var(--vscode-contrastBorder, #6fc3df);
+}
+
+.vscode-high-contrast .mermaid-zoom-controls {
+  border-width: 2px;
+  border-color: var(--vscode-contrastBorder, #6fc3df);
+}
+
+.vscode-high-contrast .mermaid-zoom-btn {
+  border: 1px solid var(--vscode-contrastBorder, #6fc3df);
+}
+
+.vscode-high-contrast .mermaid-zoom-btn:focus {
+  outline-width: 3px;
+}
+
+/* Forced colors mode (Windows high contrast) */
+@media (forced-colors: active) {
+  .mermaid-zoom-wrapper {
+    border: 2px solid ButtonText;
+  }
+
+  .mermaid-zoom-controls {
+    border: 2px solid ButtonText;
+    background: Canvas;
+  }
+
+  .mermaid-zoom-btn {
+    border: 1px solid ButtonText;
+    background: ButtonFace;
+    color: ButtonText;
+  }
+
+  .mermaid-zoom-btn:hover,
+  .mermaid-zoom-btn:focus {
+    background: Highlight;
+    color: HighlightText;
+  }
+}
+
+/* Animation for smooth transitions */
+@media (prefers-reduced-motion: no-preference) {
+  .mermaid-zoom-wrapper svg {
+    transition: transform 0.1s ease-out;
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+  .mermaid-zoom-controls {
+    padding: 2px;
+    gap: 2px;
+  }
+
+  .mermaid-zoom-btn {
+    width: 24px;
+    height: 24px;
+  }
+
+  .mermaid-zoom-btn svg {
+    width: 14px;
+    height: 14px;
+  }
+}
