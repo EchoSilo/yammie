@@ -183,6 +183,248 @@
   }
 }
 
+/* Zoom level indicator */
+.mermaid-zoom-level {
+  display: flex;
+  align-items: center;
+  padding: 0 8px;
+  font-size: 11px;
+  font-family: var(--vscode-font-family, system-ui);
+  color: var(--vscode-foreground, #cccccc);
+  min-width: 42px;
+  text-align: center;
+  user-select: none;
+  white-space: nowrap;
+}
+
+/* Export dropdown */
+.mermaid-export-dropdown {
+  position: relative;
+}
+
+.mermaid-export-menu {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  margin-top: 4px;
+  min-width: 80px;
+  background: var(--vscode-editor-background, #1e1e1e);
+  border: 1px solid var(--vscode-panel-border, #454545);
+  border-radius: 4px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  display: none;
+  z-index: 20;
+  overflow: hidden;
+}
+
+.mermaid-export-menu.open {
+  display: block;
+}
+
+.mermaid-export-option {
+  display: block;
+  width: 100%;
+  padding: 8px 12px;
+  border: none;
+  background: transparent;
+  color: var(--vscode-foreground, #cccccc);
+  font-size: 12px;
+  font-family: var(--vscode-font-family, system-ui);
+  text-align: left;
+  cursor: pointer;
+  transition: background 0.1s ease;
+}
+
+.mermaid-export-option:hover {
+  background: var(--vscode-list-hoverBackground, #2a2d2e);
+}
+
+.mermaid-export-option:focus {
+  outline: none;
+  background: var(--vscode-list-focusBackground, #062f4a);
+}
+
+/* Fullscreen modal */
+.mermaid-fullscreen-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mermaid-fullscreen-backdrop {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.85);
+}
+
+.mermaid-fullscreen-content {
+  position: relative;
+  width: 90vw;
+  height: 90vh;
+  background: var(--vscode-editor-background, #1e1e1e);
+  border: 1px solid var(--vscode-panel-border, #454545);
+  border-radius: 8px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.mermaid-fullscreen-diagram {
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+}
+
+.mermaid-fullscreen-diagram svg {
+  display: block;
+  max-width: none !important;
+  width: 100%;
+  height: 100%;
+}
+
+.mermaid-fullscreen-close {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  z-index: 10;
+  width: 36px;
+  height: 36px;
+  border: none;
+  border-radius: 50%;
+  background: var(--vscode-button-secondaryBackground, #3a3d41);
+  color: var(--vscode-button-secondaryForeground, #cccccc);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.1s ease, transform 0.1s ease;
+}
+
+.mermaid-fullscreen-close:hover {
+  background: var(--vscode-button-secondaryHoverBackground, #45494e);
+}
+
+.mermaid-fullscreen-close:focus {
+  outline: 2px solid var(--vscode-focusBorder, #007acc);
+  outline-offset: 2px;
+}
+
+.mermaid-fullscreen-close:active {
+  transform: scale(0.95);
+}
+
+.mermaid-fullscreen-controls {
+  position: absolute;
+  bottom: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 4px;
+  padding: 6px;
+  background: var(--vscode-editor-background, #1e1e1e);
+  border: 1px solid var(--vscode-panel-border, #454545);
+  border-radius: 6px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* Light theme adjustments for new elements */
+.vscode-light .mermaid-export-menu {
+  background: var(--vscode-editor-background, #ffffff);
+  border-color: var(--vscode-panel-border, #c8c8c8);
+}
+
+.vscode-light .mermaid-export-option:hover {
+  background: var(--vscode-list-hoverBackground, #e8e8e8);
+}
+
+.vscode-light .mermaid-fullscreen-content {
+  background: var(--vscode-editor-background, #ffffff);
+  border-color: var(--vscode-panel-border, #c8c8c8);
+}
+
+.vscode-light .mermaid-fullscreen-controls {
+  background: var(--vscode-editor-background, #ffffff);
+  border-color: var(--vscode-panel-border, #c8c8c8);
+}
+
+.vscode-light .mermaid-fullscreen-close {
+  background: var(--vscode-button-secondaryBackground, #e1e1e1);
+  color: var(--vscode-button-secondaryForeground, #333333);
+}
+
+.vscode-light .mermaid-fullscreen-close:hover {
+  background: var(--vscode-button-secondaryHoverBackground, #d4d4d4);
+}
+
+/* High contrast adjustments for new elements */
+.vscode-high-contrast .mermaid-export-menu {
+  border-width: 2px;
+  border-color: var(--vscode-contrastBorder, #6fc3df);
+}
+
+.vscode-high-contrast .mermaid-fullscreen-content {
+  border-width: 2px;
+  border-color: var(--vscode-contrastBorder, #6fc3df);
+}
+
+.vscode-high-contrast .mermaid-fullscreen-controls {
+  border-width: 2px;
+  border-color: var(--vscode-contrastBorder, #6fc3df);
+}
+
+.vscode-high-contrast .mermaid-fullscreen-close {
+  border: 2px solid var(--vscode-contrastBorder, #6fc3df);
+}
+
+/* Forced colors mode for new elements */
+@media (forced-colors: active) {
+  .mermaid-export-menu {
+    border: 2px solid ButtonText;
+    background: Canvas;
+  }
+
+  .mermaid-export-option {
+    color: ButtonText;
+  }
+
+  .mermaid-export-option:hover,
+  .mermaid-export-option:focus {
+    background: Highlight;
+    color: HighlightText;
+  }
+
+  .mermaid-fullscreen-content {
+    border: 2px solid ButtonText;
+    background: Canvas;
+  }
+
+  .mermaid-fullscreen-close {
+    border: 2px solid ButtonText;
+    background: ButtonFace;
+    color: ButtonText;
+  }
+
+  .mermaid-fullscreen-close:hover,
+  .mermaid-fullscreen-close:focus {
+    background: Highlight;
+    color: HighlightText;
+  }
+
+  .mermaid-fullscreen-controls {
+    border: 2px solid ButtonText;
+    background: Canvas;
+  }
+}
+
 /* Responsive adjustments */
 @media (max-width: 600px) {
   .mermaid-zoom-controls {
@@ -198,5 +440,16 @@
   .mermaid-zoom-btn svg {
     width: 14px;
     height: 14px;
+  }
+
+  .mermaid-zoom-level {
+    font-size: 10px;
+    min-width: 36px;
+    padding: 0 4px;
+  }
+
+  .mermaid-fullscreen-controls {
+    padding: 4px;
+    gap: 2px;
   }
 }

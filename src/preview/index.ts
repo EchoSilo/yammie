@@ -7,9 +7,13 @@
  * - Pan/zoom functionality via svg-pan-zoom
  * - State persistence across re-renders
  * - Theme change detection
+ * - Export and fullscreen features
  */
 
 import { initObserver, destroyObserver } from './observer';
+import { setFullscreenCallback, setExportCallback } from './controls';
+import { openFullscreen } from './fullscreen';
+import { exportDiagram } from './export';
 
 // Initialize when DOM is ready
 if (document.readyState === 'loading') {
@@ -22,6 +26,10 @@ function init(): void {
   console.log('Mermaid Zoom Preview: Initializing...');
 
   try {
+    // Set up callbacks for fullscreen and export
+    setFullscreenCallback(openFullscreen);
+    setExportCallback(exportDiagram);
+
     initObserver();
     console.log('Mermaid Zoom Preview: Initialized successfully');
   } catch (error) {

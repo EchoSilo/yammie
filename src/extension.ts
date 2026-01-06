@@ -29,6 +29,10 @@ export function activate(context: vscode.ExtensionContext) {
             zoomSensitivity: config.get('zoomSensitivity', 0.3),
             lightTheme: config.get('lightTheme', 'default'),
             darkTheme: config.get('darkTheme', 'dark'),
+            showZoomLevel: config.get('showZoomLevel', true),
+            showFullscreenButton: config.get('showFullscreenButton', true),
+            showExportButton: config.get('showExportButton', true),
+            exportScale: config.get('exportScale', 2),
           };
 
           // Return a container div that will be processed by preview script

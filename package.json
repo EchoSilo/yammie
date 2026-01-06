@@ -2,8 +2,8 @@
   "name": "mermaid-zoom-preview",
   "displayName": "Mermaid Zoom Preview",
   "description": "Render Mermaid diagrams in markdown preview with zoom and pan capabilities",
-  "version": "0.1.0",
-  "publisher": "your-publisher-name",
+  "version": "0.2.0",
+  "publisher": "JTinTechHQ",
   "engines": {
     "vscode": "^1.85.0"
   },
@@ -101,6 +101,28 @@
           ],
           "default": "dark",
           "description": "Mermaid theme for dark mode"
+        },
+        "mermaid-zoom.showZoomLevel": {
+          "type": "boolean",
+          "default": true,
+          "description": "Show zoom level percentage indicator"
+        },
+        "mermaid-zoom.showFullscreenButton": {
+          "type": "boolean",
+          "default": true,
+          "description": "Show fullscreen button in controls"
+        },
+        "mermaid-zoom.showExportButton": {
+          "type": "boolean",
+          "default": true,
+          "description": "Show export button in controls"
+        },
+        "mermaid-zoom.exportScale": {
+          "type": "number",
+          "default": 2,
+          "minimum": 1,
+          "maximum": 4,
+          "description": "Scale factor for PNG/JPG exports (higher = better quality, larger file)"
         }
       }
     }

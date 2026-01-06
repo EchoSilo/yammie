@@ -8,7 +8,13 @@ export interface Config {
   zoomSensitivity: number;
   lightTheme: string;
   darkTheme: string;
+  showZoomLevel: boolean;
+  showFullscreenButton: boolean;
+  showExportButton: boolean;
+  exportScale: number;
 }
+
+export type ExportFormat = 'png' | 'jpg' | 'html';
 
 export interface ZoomState {
   zoom: number;
@@ -46,4 +52,8 @@ export const DEFAULT_CONFIG: Config = {
   zoomSensitivity: 0.3,
   lightTheme: 'default',
   darkTheme: 'dark',
+  showZoomLevel: true,
+  showFullscreenButton: true,
+  showExportButton: true,
+  exportScale: 2,
 };

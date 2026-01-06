@@ -29,3 +29,15 @@ coverage/
 # Environment
 .env
 .env.local
+
+# Temporary files
+*.tmp
+*.tmp.*
+*.bak
+
+# AI assistant files
+CLAUDE.md
+.claude/
+
+# Implementation notes (internal)
+"Implementation Plan.md"

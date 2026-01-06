@@ -1,7 +1,7 @@
 import svgPanZoom from 'svg-pan-zoom';
 import { Config, PanZoomInstance } from './types';
 import { zoomStateManager } from './zoomState';
-import { createControls } from './controls';
+import { createControls, updateZoomLevel } from './controls';
 import { debounce } from './utils';
 
 // Track pan-zoom instances by container element
@@ -56,9 +56,10 @@ export function initializePanZoom(
     mouseWheelZoomEnabled: config.mouseWheelZoom,
     preventMouseEventsDefault: true,
 
-    // Save state on zoom/pan (debounced)
-    onZoom: debounce(() => {
+    // Save state on zoom/pan (debounced) and update zoom level indicator
+    onZoom: debounce((scale: number) => {
       zoomStateManager.save(mermaidSource, index, instance);
+      updateZoomLevel(wrapper, scale);
     }, 100),
     onPan: debounce(() => {
       zoomStateManager.save(mermaidSource, index, instance);
@@ -78,8 +79,11 @@ export function initializePanZoom(
   }
 
   // Add controls
-  const controls = createControls(wrapper, instance, config);
+  const controls = createControls(wrapper, instance, config, svg);
   wrapper.appendChild(controls);
+
+  // Set initial zoom level
+  updateZoomLevel(wrapper, instance.getZoom());
 
   return instance;
 }
